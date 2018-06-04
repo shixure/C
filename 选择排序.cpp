@@ -1,17 +1,17 @@
 #include<stdio.h>   
-main()  
+int main()  
 {  
     int temp,i,j;  
     int a[5];  
     printf("please enter the numbers:\n");
     for(i=0;i<5;i++)  
-    scanf("%d",&a[i]);//ÊäÈëÒªÅÅĞòµÄÊı   
+    scanf("%d",&a[i]);//è¾“å…¥è¦æ’åºçš„æ•°   
       
     for(i=0;i<5;i++)  
     {  
         for(j=i+1;j<5;j++)  
         {  
-            if(a[j]<a[i]) //Èç¹ûÑ¡È¡µÄÊı´óÓÚ¸ÃÊı£¬Ôò½»»»Á½Êı 
+            if(a[j]<a[i]) //å¦‚æœé€‰å–çš„æ•°å¤§äºè¯¥æ•°ï¼Œåˆ™äº¤æ¢ä¸¤æ•° 
             {  
             temp=a[j];  
             a[j]=a[i];  
@@ -21,5 +21,5 @@ main()
     }  
     printf("output:\n");
     for(i=0;i<5;i++)  
-    printf("%d ",a[i]);//´ÓĞ¡µ½´óÊä³ö
+    printf("%d ",a[i]);//ä»å°åˆ°å¤§è¾“å‡º
 }  
