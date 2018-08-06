@@ -2,34 +2,34 @@
 int main()
 {
 	char P,Q,c;
-	printf("请输入P的真值："); 
+	printf("璇疯緭鍏鐨勭湡鍊硷細"); 
 	scanf("%c",&P);
 	scanf("%c",&c);
-	printf("请输入Q的真值：");
+	printf("璇疯緭鍏鐨勭湡鍊硷細");
 	scanf("%c",&Q);
 
 	if(P=='T')
-		printf("非P的真值为F\n");
+		printf("闈濸鐨勭湡鍊间负F\n");
 	if(P=='F')
-		printf("非P的真值为T\n");
+		printf("闈濸鐨勭湡鍊间负T\n");
 	if(P=='T' && Q=='T')
 	{
-		printf("P∧Q的真值为T\nP∨Q的真值为T\nP▽Q的真值为F\nP→Q的真值为T\nP?Q的真值为T"); 
+		printf("P鈭鐨勭湡鍊间负T\nP鈭≦鐨勭湡鍊间负T\nP鈻絈鐨勭湡鍊间负F\nP鈫扱鐨勭湡鍊间负T\nP?Q鐨勭湡鍊间负T"); 
 	}
-	if(P=='T' && Q=='F')
+	else if(P=='T' && Q=='F')
 	{
-		printf("P∧Q的真值为F\nP∨Q的真值为T\nP▽Q的真值为T\nP→Q的真值为F\nP?Q的真值为F"); 
+		printf("P鈭鐨勭湡鍊间负F\nP鈭≦鐨勭湡鍊间负T\nP鈻絈鐨勭湡鍊间负T\nP鈫扱鐨勭湡鍊间负F\nP?Q鐨勭湡鍊间负F"); 
 	}
-	if(P=='F' && Q=='T')
+	else if(P=='F' && Q=='T')
 	{
-		printf("P∧Q的真值为F\nP∨Q的真值为T\nP▽Q的真值为T\nP→Q的真值为T\nP?Q的真值为F"); 
+		printf("P鈭鐨勭湡鍊间负F\nP鈭≦鐨勭湡鍊间负T\nP鈻絈鐨勭湡鍊间负T\nP鈫扱鐨勭湡鍊间负T\nP?Q鐨勭湡鍊间负F"); 
 	}
-	if(P=='F' && Q=='F')
+	else if(P=='F' && Q=='F')
 	{
-		printf("P∧Q的真值为F\nP∨Q的真值为F\nP▽Q的真值为F\nP→Q的真值为T\nP?Q的真值为T"); 
+		printf("P鈭鐨勭湡鍊间负F\nP鈭≦鐨勭湡鍊间负F\nP鈻絈鐨勭湡鍊间负F\nP鈫扱鐨勭湡鍊间负T\nP?Q鐨勭湡鍊间负T"); 
 	}
 	else
 	{
-		printf("输入信息有误"); 
+		printf("杈撳叆淇℃伅鏈夎"); 
 	}
 } 
