@@ -1,6 +1,6 @@
 /*
-ÊäÈëÒ»¸öÏ¡Êè¾ØÕóA,½¨Á¢AµÄÈıÔª×éË³Ğò±í,ÇóAµÄ×ªÖÃ¾ØÕóB,ÇëÓÃÁ½ÖÖ×ªÖÃ·¨ÊµÏÖÏ¡Êè¾ØÕóµÄ×ªÖÃ,
-×¢Òâ¾ØÕóµÄ½¨Á¢¡¢Êä³öµÄÊµÏÖ¡£
+è¾“å…¥ä¸€ä¸ªç¨€ç–çŸ©é˜µA,å»ºç«‹Açš„ä¸‰å…ƒç»„é¡ºåºè¡¨,æ±‚Açš„è½¬ç½®çŸ©é˜µB,è¯·ç”¨ä¸¤ç§è½¬ç½®æ³•å®ç°ç¨€ç–çŸ©é˜µçš„è½¬ç½®,
+æ³¨æ„çŸ©é˜µçš„å»ºç«‹ã€è¾“å‡ºçš„å®ç°ã€‚
 */
 #include <malloc.h>
 #include <stdio.h>
@@ -10,7 +10,7 @@ typedef int Telemtype;
 #define Maxsize 10
 
 typedef struct Triple
-{ /*¶¨ÒåÈıÔª×é±í*/
+{ /*å®šä¹‰ä¸‰å…ƒç»„è¡¨*/
     int i, j;
     Telemtype v;
 } Triple;
@@ -24,7 +24,7 @@ typedef struct TSMatrix
 } TSMatrix;
 
 void InitTriple(TSMatrix *a)
-{ /*ÊäÈëÈıÔª×é±í*/
+{ /*è¾“å…¥ä¸‰å…ƒç»„è¡¨*/
     int i, j, k, val, maxrow, maxcol;
     // char contiue;
     maxrow = 1;
@@ -32,7 +32,7 @@ void InitTriple(TSMatrix *a)
     i = j = 1;
     k = 0;
     while (i != -1 && j != -1 && val != -1)
-    { /*rol=-1&&col=-1½áÊøÊäÈë*/
+    { /*rol=-1&&col=-1ç»“æŸè¾“å…¥*/
         printf("input row \n");
         scanf("%d", &i);
         printf("input col \n");
@@ -55,7 +55,7 @@ void InitTriple(TSMatrix *a)
 
 void FastTranspose(TSMatrix a, TSMatrix *b)
 {
-    /*Ï¡Êè¾ØÕó(ÈıÔª×é´æ´¢½á¹¹)×ªÖÃËã·¨*/
+    /*ç¨€ç–çŸ©é˜µ(ä¸‰å…ƒç»„å­˜å‚¨ç»“æ„)è½¬ç½®ç®—æ³•*/
     int p, q, col;
     int num[a.n + 1];
     int cpot[a.n + 1];
@@ -74,16 +74,16 @@ void FastTranspose(TSMatrix a, TSMatrix *b)
         for (p = 0; p < a.t; p++)
         {
             col = a.data[p].j;
-            q = cpot[col]; //p ´ú±í ¾ØÕóaµÄÎ»ÖÃ£¬q´ú±íÔÚbÖĞÒª²åÈëµÄÎ»ÖÃ¡£
+            q = cpot[col]; //p ä»£è¡¨ çŸ©é˜µaçš„ä½ç½®ï¼Œqä»£è¡¨åœ¨bä¸­è¦æ’å…¥çš„ä½ç½®ã€‚
             b->data[q].j = a.data[p].i;
             b->data[q].i = a.data[p].j;
             b->data[q].v = a.data[p].v;
-            ++cpot[col]; //Î»ÖÃ·¢Éú±ä»¯ ×Ô¶¯¼ÓÒ»
+            ++cpot[col]; //ä½ç½®å‘ç”Ÿå˜åŒ– è‡ªåŠ¨åŠ ä¸€
         }
     }
 }
 void showMatrix(TSMatrix *a)
-{ /*Êä³öÏ¡Êè¾ØÕó*/
+{ /*è¾“å‡ºç¨€ç–çŸ©é˜µ*/
     int p, q;
     int t = 0;
     for (p = 1; p <= a->m; p++)
@@ -129,13 +129,13 @@ int main()
     TSMatrix a, b;
 
     InitTriple(&a);
-    printf("Ô­À´¾ØÕóÊÇ\n");
-    showMatrix(&a); /*×ªÖÃÇ°*/
+    printf("åŸæ¥çŸ©é˜µæ˜¯\n");
+    showMatrix(&a); /*è½¬ç½®å‰*/
     TransposeSMatrix(&a, &b);
-    printf("ÆÕÍ¨×ªÖÃºó¾ØÕóÊÇ\n");
-    showMatrix(&b); /*×ªÖÃºó*/
+    printf("æ™®é€šè½¬ç½®åçŸ©é˜µæ˜¯\n");
+    showMatrix(&b); /*è½¬ç½®å*/
     FastTranspose(a, &b);
-    printf("¿ìËÙ×ªÖÃºó¾ØÕóÊÇ\n");
-    showMatrix(&b); /*×ªÖÃºó*/
+    printf("å¿«é€Ÿè½¬ç½®åçŸ©é˜µæ˜¯\n");
+    showMatrix(&b); /*è½¬ç½®å*/
     getchar();getchar();
 }
