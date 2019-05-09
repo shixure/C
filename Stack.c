@@ -1,22 +1,22 @@
-/*ÒÀ´ÎÊäÈëÊı¾İÔªËØ1,2,3,4,5,È»ºóÅĞ¶ÏÕ»ÊÇ·ñÎª¿Õ,ÏÔÊ¾Õ»¶¥ÔªËØ,³öÕ»²¢ÔÚÆÁÄ»ÉÏÏÔÊ¾³öÕ»µÄÊı¾İÔªËØ*/
+/*ä¾æ¬¡è¾“å…¥æ•°æ®å…ƒç´ 1,2,3,4,5,ç„¶ååˆ¤æ–­æ ˆæ˜¯å¦ä¸ºç©º,æ˜¾ç¤ºæ ˆé¡¶å…ƒç´ ,å‡ºæ ˆå¹¶åœ¨å±å¹•ä¸Šæ˜¾ç¤ºå‡ºæ ˆçš„æ•°æ®å…ƒç´ */
 #include <malloc.h>
-#include <stdio.h> /*¸ÃÎÄ¼ş°üº¬pringtf()µÈº¯Êı*/
+#include <stdio.h> /*è¯¥æ–‡ä»¶åŒ…å«pringtf()ç­‰å‡½æ•°*/
 #include <stdlib.h>
-#define MaxStackSize 100 /*¶¨ÒåMaxSizeÎª100*/
-typedef int DataType;	/*¶¨ÒåDataTypeÎªint*/
+#define MaxStackSize 100 /*å®šä¹‰MaxSizeä¸º100*/
+typedef int DataType;	/*å®šä¹‰DataTypeä¸ºint*/
 typedef struct
 {
 	DataType stack[MaxStackSize];
 	int top;
 } SeqStack;
 
-void StackInitiate(SeqStack *S) /*³õÊ¼»¯Ë³Ğò¶ÑÕ»S*/
+void StackInitiate(SeqStack *S) /*åˆå§‹åŒ–é¡ºåºå †æ ˆS*/
 {
-	S->top = -1; /*¶¨Òå³õÊ¼Õ»¶¥ÏÂ±êÖµ*/
+	S->top = -1; /*å®šä¹‰åˆå§‹æ ˆé¡¶ä¸‹æ ‡å€¼*/
 }
 
 int StackNotEmpty(SeqStack S)
-/*ÅĞË³Ğò¶ÑÕ»S·Ç¿Õ·ñ£¬·Ç¿ÕÔò·µ»Ø1£¬·ñÔò·µ»Ø0*/
+/*åˆ¤é¡ºåºå †æ ˆSéç©ºå¦ï¼Œéç©ºåˆ™è¿”å›1ï¼Œå¦åˆ™è¿”å›0*/
 {
 	if (S.top != -1)
 		return 1;
@@ -26,11 +26,11 @@ int StackNotEmpty(SeqStack S)
 
 int StackPush(SeqStack *S, DataType x)
 
-/*°ÑÊı¾İÔªËØÖµxÑ¹ÈëË³Ğò¶ÑÕ»S£¬ÈëÕ»³É¹¦Ôò·µ»Ø1£¬·ñÔò·µ»Ø0 */
+/*æŠŠæ•°æ®å…ƒç´ å€¼xå‹å…¥é¡ºåºå †æ ˆSï¼Œå…¥æ ˆæˆåŠŸåˆ™è¿”å›1ï¼Œå¦åˆ™è¿”å›0 */
 {
 	if (S->top == MaxStackSize - 1)
 	{
-		printf("¶ÑÕ»ÒÑÂúÎŞ·¨²åÈë! \n");
+		printf("å †æ ˆå·²æ»¡æ— æ³•æ’å…¥! \n");
 		return 0;
 	}
 	else
@@ -44,11 +44,11 @@ int StackPush(SeqStack *S, DataType x)
 
 int StackPop(SeqStack *S, DataType *d)
 
-/*µ¯³öË³Ğò¶ÑÕ»SµÄÕ»¶¥Êı¾İÔªËØÖµµ½²ÎÊıd £¬³öÕ»³É¹¦Ôò·µ»Ø1£¬·ñÔò·µ»Ø0*/
+/*å¼¹å‡ºé¡ºåºå †æ ˆSçš„æ ˆé¡¶æ•°æ®å…ƒç´ å€¼åˆ°å‚æ•°d ï¼Œå‡ºæ ˆæˆåŠŸåˆ™è¿”å›1ï¼Œå¦åˆ™è¿”å›0*/
 {
 	if (S->top == -1)
 	{
-		printf("¶ÑÕ»ÒÑ¿ÕÎŞÊı¾İÔªËØ³öÕ»! \n");
+		printf("å †æ ˆå·²ç©ºæ— æ•°æ®å…ƒç´ å‡ºæ ˆ! \n");
 		return 0;
 	}
 	else
@@ -61,11 +61,11 @@ int StackPop(SeqStack *S, DataType *d)
 }
 
 int StackTop(SeqStack S, DataType *d)
-/*È¡Ë³Ğò¶ÑÕ»SµÄµ±Ç°Õ»¶¥Êı¾İÔªËØÖµµ½²ÎÊıd £¬³É¹¦Ôò·µ»Ø1£¬·ñÔò·µ»Ø0*/
+/*å–é¡ºåºå †æ ˆSçš„å½“å‰æ ˆé¡¶æ•°æ®å…ƒç´ å€¼åˆ°å‚æ•°d ï¼ŒæˆåŠŸåˆ™è¿”å›1ï¼Œå¦åˆ™è¿”å›0*/
 {
 	if (S.top == -1)
 	{
-		printf("¶ÑÕ»ÒÑ¿Õ! \n");
+		printf("å †æ ˆå·²ç©º! \n");
 		return 0;
 	}
 	else
@@ -89,13 +89,13 @@ int main()
 	n = StackNotEmpty(S);
 	if (n = 1)
 	{
-		printf("Õ»·Ç¿Õ\n");
+		printf("æ ˆéç©º\n");
 		StackTop(S, &d);
-		printf("Õ»¶¥ÔªËØ£º%d\n", d);
+		printf("æ ˆé¡¶å…ƒç´ ï¼š%d\n", d);
 	}
 	else
-		printf("Õ»Îª¿Õ\n");
-	printf("³öÕ»£º");
+		printf("æ ˆä¸ºç©º\n");
+	printf("å‡ºæ ˆï¼š");
 	for (i = 0; i < 5; i++)
 	{
 		StackPop(&S, &d);
