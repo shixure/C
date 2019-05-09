@@ -1,5 +1,5 @@
-/*½¨Á¢10¸öÊı¾İÔªËØµÄÏßĞÔ±íL={1£¬2£¬3¡­10}Ö¸¶¨ÔÚµÚ2Î»ÖÃ²åÈëÔªËØ25£¬È»ºóÉ¾³ıµÚ4¸öÎ»ÖÃÉÏµÄÔªËØ£¬
-·Ö±ğÏÔÊ¾¸÷²½Öè½á¹û£¬ÏßĞÔ±íË³Ğò±íÊ¾¼°ÊµÏÖ*/
+/*å»ºç«‹10ä¸ªæ•°æ®å…ƒç´ çš„çº¿æ€§è¡¨L={1ï¼Œ2ï¼Œ3â€¦10}æŒ‡å®šåœ¨ç¬¬2ä½ç½®æ’å…¥å…ƒç´ 25ï¼Œç„¶ååˆ é™¤ç¬¬4ä¸ªä½ç½®ä¸Šçš„å…ƒç´ ï¼Œ
+åˆ†åˆ«æ˜¾ç¤ºå„æ­¥éª¤ç»“æœï¼Œçº¿æ€§è¡¨é¡ºåºè¡¨ç¤ºåŠå®ç°*/
 #include <conio.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -14,7 +14,7 @@ typedef struct
 
 void ListInitiate(SeqList *L)
 {
-	L->size = 0; /*¶¨Òå³õÊ¼Êı¾İÔªËØ¸öÊı*/
+	L->size = 0; /*å®šä¹‰åˆå§‹æ•°æ®å…ƒç´ ä¸ªæ•°*/
 }
 
 int creat(SeqList *L)
@@ -40,9 +40,9 @@ int ListInsert(SeqList *L, int i, DataType x)
 		return 0;
 	}
 	for (j = L->size; j > i - 1; j--)
-		L->list[j] = L->list[j - 1]; /*ÒÀ´ÎºóÒÆ*/
-	L->list[i] = x;					 /*²åÈëx*/
-	L->size++;						 /*ÔªËØ¸öÊı¼Ó1*/
+		L->list[j] = L->list[j - 1]; /*ä¾æ¬¡åç§»*/
+	L->list[i] = x;					 /*æ’å…¥x*/
+	L->size++;						 /*å…ƒç´ ä¸ªæ•°åŠ 1*/
 	return 1;
 }
 
@@ -52,14 +52,14 @@ int ListDelete(SeqList *L, int i, DataType *x)
 
 	if (L->size <= 0)
 	{
-		printf("Ë³Ğò±íÒÑ¿Õ£¬ÎŞ·¨É¾³ı");
+		printf("é¡ºåºè¡¨å·²ç©ºï¼Œæ— æ³•åˆ é™¤");
 		return 0;
 	}
 	else
-		*x = L->list[i]; /*±£´æÉ¾³ıµÄÔªËØµ½xÖĞ*/
+		*x = L->list[i]; /*ä¿å­˜åˆ é™¤çš„å…ƒç´ åˆ°xä¸­*/
 	for (j = i + 1; j <= L->size - 1; j++)
-		L->list[j - 1] = L->list[j]; /*ÒÀ´ÎÇ°ÒÆ*/
-	L->size--;						 /*Êı¾İÔªËØ¸öÊı¼õ1*/
+		L->list[j - 1] = L->list[j]; /*ä¾æ¬¡å‰ç§»*/
+	L->size--;						 /*æ•°æ®å…ƒç´ ä¸ªæ•°å‡1*/
 	return 1;
 }
 
@@ -67,7 +67,7 @@ int ListGet(SeqList L, int i, DataType *x)
 {
 	if (i < 0 || i > 10)
 	{
-		printf("²ÎÊıi²»ºÏ·¨! \n");
+		printf("å‚æ•°iä¸åˆæ³•! \n");
 		return 0;
 	}
 	else
@@ -83,7 +83,7 @@ int main()
 	DataType a, b;
 	creat(&L);
 	L.size = 10;
-	printf("³õÊ¼±í£º");
+	printf("åˆå§‹è¡¨ï¼š");
 	for (int i = 0; i < 10; i++)
 	{
 		ListGet(L, i, &a);
@@ -91,7 +91,7 @@ int main()
 	}
 	printf("\n");
 	ListInsert(&L, 2, 25);
-	printf("²åÈëºó£º");
+	printf("æ’å…¥åï¼š");
 	for (int i = 0; i < 11; i++)
 	{
 		ListGet(L, i, &a);
@@ -99,7 +99,7 @@ int main()
 	}
 	printf("\n");
 	ListDelete(&L, 4, &b);
-	printf("É¾³ıºó£º");
+	printf("åˆ é™¤åï¼š");
 	for (int i = 0; i < 10; i++)
 	{
 		ListGet(L, i, &a);
