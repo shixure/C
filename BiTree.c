@@ -1,8 +1,8 @@
 /*
-¶þ²æÊ÷²ÉÓÃ¶þ²æÁ´±í×÷´æ´¢½á¹¹£¬ÊÔ±à³ÌÊµÏÖ¶þ²æÊ÷µÄÈçÏÂ»ù±¾²Ù×÷£º
-1. °´ÏÈÐòÐòÁÐ¹¹ÔìÒ»¿Ã¶þ²æÁ´±í±íÊ¾µÄ¶þ²æÊ÷T£»
-2. ¶ÔÕâ¿Ã¶þ²æÊ÷½øÐÐ±éÀú£ºÏÈÐò¡¢ÖÐÐò¡¢ºóÐòÒÔ¼°²ã´Î±éÀúÐòÁÐ£¬·Ö±ðÊä³ö½áµãµÄ±éÀúÐòÁÐ£»
-3. Çó¶þ²æÊ÷µÄÉî¶È/½áµãÊýÄ¿/Ò¶½áµãÊýÄ¿£»
+äºŒå‰æ ‘é‡‡ç”¨äºŒå‰é“¾è¡¨ä½œå­˜å‚¨ç»“æž„ï¼Œè¯•ç¼–ç¨‹å®žçŽ°äºŒå‰æ ‘çš„å¦‚ä¸‹åŸºæœ¬æ“ä½œï¼š
+1. æŒ‰å…ˆåºåºåˆ—æž„é€ ä¸€æ£µäºŒå‰é“¾è¡¨è¡¨ç¤ºçš„äºŒå‰æ ‘Tï¼›
+2. å¯¹è¿™æ£µäºŒå‰æ ‘è¿›è¡ŒéåŽ†ï¼šå…ˆåºã€ä¸­åºã€åŽåºä»¥åŠå±‚æ¬¡éåŽ†åºåˆ—ï¼Œåˆ†åˆ«è¾“å‡ºç»“ç‚¹çš„éåŽ†åºåˆ—ï¼›
+3. æ±‚äºŒå‰æ ‘çš„æ·±åº¦/ç»“ç‚¹æ•°ç›®/å¶ç»“ç‚¹æ•°ç›®ï¼›
 */
 #include <malloc.h>
 #include <stdio.h>
@@ -15,15 +15,15 @@ typedef struct node
     struct node *rchild;
 } BTree, *pBTree;
 
-//ÏÈÐò´´½¨Ê÷
+//å…ˆåºåˆ›å»ºæ ‘
 void CreateBTree(BTree **T)
-//´Ë´¦²ÎÊýÓ¦¸ÃÓÃÖ¸ÕëµÄÖ¸Õë£¬Ó¦¸øËüÒª¸Ä±äÖ¸Ïò¶þ²æÊ÷¸ùµÄÄÇ¸öÖ¸Õë
+//æ­¤å¤„å‚æ•°åº”è¯¥ç”¨æŒ‡é’ˆçš„æŒ‡é’ˆï¼Œåº”ç»™å®ƒè¦æ”¹å˜æŒ‡å‘äºŒå‰æ ‘æ ¹çš„é‚£ä¸ªæŒ‡é’ˆ
 {
     char ch;
-    printf("ÇëÊäÈëÏÈÐò¶þ²æÊ÷\n");
+    printf("è¯·è¾“å…¥å…ˆåºäºŒå‰æ ‘\n");
     ch = getchar();
-    getchar();     //µÃµ½»Ø³µ°´ÄÇ¸ö×Ö·û
-    if (ch == '/') //ÊäÈë¿Õ×Ö·ûÊ±Òª´ò¿Õ¸ñ
+    getchar();     //å¾—åˆ°å›žè½¦æŒ‰é‚£ä¸ªå­—ç¬¦
+    if (ch == '/') //è¾“å…¥ç©ºå­—ç¬¦æ—¶è¦æ‰“ç©ºæ ¼
     {
         (*T) = NULL;
         return;
@@ -40,7 +40,7 @@ void CreateBTree(BTree **T)
 }
 
 void BTreePrint(BTree *Tr, int n)
-//ÄæÊ±ÕëÐý×ª90¡ã´òÓ¡¶þ²æÊ÷£¬nÎªËõ½ø²ãÊý£¬³õÊ¼ÖµÎª0
+//é€†æ—¶é’ˆæ—‹è½¬90Â°æ‰“å°äºŒå‰æ ‘ï¼Œnä¸ºç¼©è¿›å±‚æ•°ï¼Œåˆå§‹å€¼ä¸º0
 {
     int i;
     if (Tr == NULL)
@@ -166,19 +166,19 @@ int main()
     BTree *bTree;
     CreateBTree(&bTree);
     BTreePrint(bTree, 0);
-    printf("ÏÈÐò±éÀúÐòÁÐ");
+    printf("å…ˆåºéåŽ†åºåˆ—");
     pre(bTree);
-    printf("ÖÐÐò±éÀúÐòÁÐ");
+    printf("ä¸­åºéåŽ†åºåˆ—");
     in(bTree);
-    printf("ºóÐò±éÀúÐòÁÐ");
+    printf("åŽåºéåŽ†åºåˆ—");
     printf("\n");
     post(bTree);
-    printf("½áµã×ÜÊýÊÇ%d\n", getnodes(bTree));
-    printf("Ò¶×Ó×ÜÊýÊÇ%d\n", getlefes(bTree));
+    printf("ç»“ç‚¹æ€»æ•°æ˜¯%d\n", getnodes(bTree));
+    printf("å¶å­æ€»æ•°æ˜¯%d\n", getlefes(bTree));
     a = count(bTree);
-    printf("Ê÷ÉÏ½áµãÊýÊÇ%d\n", a);
+    printf("æ ‘ä¸Šç»“ç‚¹æ•°æ˜¯%d\n", a);
     b = getlefs2(bTree);
-    printf("Ê÷ÉÏÒ¶×Ó%d\n", b);
-    printf("Ê÷µÄ¸ß¶ÈÊÇ%d\n", depth(bTree));
+    printf("æ ‘ä¸Šå¶å­%d\n", b);
+    printf("æ ‘çš„é«˜åº¦æ˜¯%d\n", depth(bTree));
     getchar();getchar();
 }
