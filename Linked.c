@@ -1,5 +1,5 @@
-/*����10������Ԫ�ص����Ա�L={1��2��3��10}ָ���ڵ�2λ�ò���Ԫ��25��Ȼ��ɾ����4��λ���ϵ�Ԫ�أ�
-�ֱ���ʾ�������������Ա�������ʾ��ʵ��*/
+/*建立10个数据元素的线性表L={1，2，3…10}指定在第2位置插入元素25，然后删除第4个位置上的元素，
+分别显示各步骤结果，线性表链表表示及实现*/
 #include <stdio.h>
 #include <stdlib.h>
 typedef int ElemType;
@@ -27,7 +27,7 @@ void insert(LNode *L, int i, ElemType x)
    }
    if (p == NULL)
    {
-      printf("��ų�����");
+      printf("序号出错！");
    }
    else
    {
@@ -39,7 +39,7 @@ void insert(LNode *L, int i, ElemType x)
    }
 }
 
-void Delete(LNode *L, int i) //ɾ��ֵΪx�Ľ��
+void Delete(LNode *L, int i) //删除值为x的结点
 {
    LNode *p;
    LNode *u;
@@ -52,7 +52,7 @@ void Delete(LNode *L, int i) //ɾ��ֵΪx�Ľ��
    }
    if (p == NULL || p->next == NULL)
    {
-      printf("ɾ����ų�����");
+      printf("删除序号出错！");
    }
    else
    {
@@ -72,7 +72,7 @@ int main()
       scanf("%d", &x);
       insert(L, i, x);
    }
-   printf("��ʼ����");
+   printf("初始表：");
    L = head->next;
    while (L)
    {
@@ -82,7 +82,7 @@ int main()
    printf("\n");
    L = head;
    insert(L, 2, 25);
-   printf("�����");
+   printf("插入后：");
    L = head->next;
    while (L)
    {
@@ -92,7 +92,7 @@ int main()
    printf("\n");
    L = head;
    Delete(L, 4);
-   printf("ɾ����");
+   printf("删除后：");
    L = head->next;
    while (L)
    {
